@@ -35,45 +35,6 @@ client.on("interactionCreate", async (interaction) => {
             }
         }
     }
-    if(interaction.isChatInputCommand() && interaction.commandName === "embed") {
-        const modal = new ModalBuilder()
-            .setCustomID("embedModal")
-            .setTitle("Embed Erstellen")
-
-        const titleInput = new TextInputBuilder()
-            .setCustomID("title")
-            .setLabel("Titel")
-            .setStyle(TextInputStyle.Short)
-            .setPlaceholder("Titel")
-
-        const descriptionInput = new TextInputBuilder()
-            .setCustomID("description")
-            .setLabel("Beschreibung")
-            .setStyle(TextInputStyle.Paragraph)
-
-        const authorInput = new TextInputBuilder()
-            .setCustomID("author")
-            .setLabel("Autor")
-            .setStyle(TextInputStyle.Short)
-            .setValue("Dead City - Team")
-
-        modal.addComponents([
-            new ActionRowBuilder().addComponents(titleInput),
-            new ActionRowBuilder().addComponents(descriptionInput),
-            new ActionRowBuilder().addComponents(authorInput)
-        ])
-        await interaction.showModal(modal)
-
-    } else if(interaction.type === InteractionType.ModalSubmit && interaction.customID === "embedModal") {
-        const embed = new EmbedBuilder()
-            .setTitle(interaction.fields.getTextInputValue("title"))
-            .setDescription(interaction.fields.getTextInputValue("description"))
-            .setAuthor({
-                name: interaction.fields.getTextInputValue("author")
-            })
-
-        await interaction.reply({embeds: [embed]})
-    }
 })
 
 client.login(process.env.DISCORD_BOT_TOKEN)
