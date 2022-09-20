@@ -1,10 +1,9 @@
+// Load all files and conntect bot
 require("dotenv").config()
 const fs = require("fs")
 const { Client, ActivityType, GatewayIntentBits, Collection, ActionRow } = require("discord.js")
 const { InteractionType } = require("discord-api-types/v9")
-
 const prefix = '!';
-
 const client = new Client({intents: [GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMembers,
     GatewayIntentBits.GuildBans,
@@ -23,22 +22,12 @@ const client = new Client({intents: [GatewayIntentBits.Guilds,
     GatewayIntentBits.MessageContent,
     GatewayIntentBits.GuildScheduledEvents]})
 client.commands = new Collection()
-
 client.login(process.env.DISCORD_BOT_TOKEN)
-
 const commandFiles = fs.readdirSync("./src/commands").filter(file => file.endsWith(".js"))
-
-
 commandFiles.forEach(commandFile => {
     const command = require(`./commands/${commandFile}`)
     client.commands.set(command.data.name, command)
 })
-
-client.once("ready", () => {
-    console.log("Bot ist online!")
-    client.user.setActivity({name: "auf Dead City", type: ActivityType.Playing})
-})
-
 client.on("interactionCreate", async (interaction) => {
     if (!interaction.isCommand()) return
     const command = client.commands.get(interaction.commandName)
@@ -56,7 +45,24 @@ client.on("interactionCreate", async (interaction) => {
         }
     }
 })
+client.once("ready", () => {
+    console.log("Bot ist online!")
+    client.user.setActivity({name: "auf Dead City", type: ActivityType.Playing})
+})
 
+
+
+// Message Logger
+client.on('messageCreate', (message) => {
+    console.log('---------------------');
+    console.log('Message: ' + message.content);
+    console.log(message.createdAt.toDateString());
+    console.log(message.author.tag);
+    console.log('---------------------');
+})
+
+
+// Command Handler
 client.on("messageCreate", (message) => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -68,7 +74,7 @@ client.on("messageCreate", (message) => {
     const cmd = messageArray[0];
 
     
-    // ! Commands
+    // Commands - (Prefix: !)
 if(command === 'test') {
     message.channel.send("Test erfolgreich! **Prefix Commands** funktionieren!");
 }
