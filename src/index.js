@@ -38,9 +38,11 @@ client.on("interactionCreate", async (interaction) => {
             console.error(error)
             
             if(interaction.deferred || interaction.replied) {
-                interaction.editReply({content: "There was an error while executing this command!", ephemeral: true})
+                interaction.editReply({content: "There was an error while executing this command!", ephemeral: true});
+                console.log("Fehler beim Ausführen eines Befehls")
             } else {
-                interaction.reply({content: "There was an error while executing this command!", ephemeral: true})
+                interaction.reply({content: "There was an error while executing this command!", ephemeral: true});
+                console.log("Fehler beim Ausführen eines Befehls")
             }
         }
     }
@@ -83,4 +85,19 @@ if(command === 'help') {
     message.channel.send("Leider funktioniert der Bot noch nicht! (Kappa)");
 }
 
+if(command === 'dm') {
+    // sendet einem User eine DM (Format: !dm @User Nachricht)
+    const user = message.mentions.users.first();
+    if(user) {
+        const member = message.guild.members.cache.get(user.id);
+        if(member) {
+            member.send(argument.join(" "));
+            message.channel.send("Nachricht erfolgreich gesendet!");
+        } else {
+            message.channel.send("Der User ist nicht auf diesem Server!");
+        }
+    } else {
+        message.channel.send("Du hast keinen User angegeben!");
+    }
+}
 })
