@@ -81,10 +81,6 @@ if(command === 'test') {
     message.channel.send("Test erfolgreich! **Prefix Commands** funktionieren!");
 }
 
-if(command === 'help') {
-    message.channel.send("Leider funktioniert der Bot noch nicht! (Kappa)");
-}
-
 if(command === 'dm') {
     // sendet einem User eine DM (Format: !dm @User Nachricht)
     const user = message.mentions.users.first();
