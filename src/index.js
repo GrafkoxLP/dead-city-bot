@@ -1,7 +1,7 @@
 // Load all files and conntect bot
 require("dotenv").config()
 const fs = require("fs")
-const { Client, ActivityType, GatewayIntentBits, Collection, ActionRow } = require("discord.js")
+const { Client, ActivityType, GatewayIntentBits, Collection, ActionRow, EmbedBuilder } = require("discord.js")
 const { InteractionType } = require("discord-api-types/v9")
 const prefix = '!';
 const client = new Client({intents: [GatewayIntentBits.Guilds,
@@ -52,6 +52,16 @@ client.once("ready", () => {
     client.user.setActivity({name: "auf Dead City", type: ActivityType.Playing})
 })
 
+const channelID = '940232290628419649'
+
+client.on('guildMemberAdd', (member) => {
+    const message = "Hey <@" +member.user+ "> Herzlich willkommen auf **Dead City**! 🎉🤗\nGehe bitte zu <#940232290628419650> und bestätige sie bitte mit ✅.\nDu kannst dir außerdem in <#940232290628419652> eigene Rollen geben."
+    const channel = member.guild.channels.cache.get(channelID)
+    channel.send(message)
+    member.send("Hey <@" +member.user+ ">! Das ganze Team von **Dead City** wünscht dich noch einmal herzlich willkommen auf unserem Server und wir wünschen dir viel Spaß.\nFalls du es noch nicht gesehen hast, um unserem Server zu joinen, gehe bitte zu <#940232290628419650> und bestätige unsere Regeln bitte mit ✅.\nBei Fragen kannst du unter <#940232291018473491> ein Ticket erstellen.")
+})
+
+
 
 
 // Message Logger
@@ -95,5 +105,76 @@ if(command === 'dm') {
     } else {
         message.channel.send("Du hast keinen User angegeben!");
     }
+}
+
+if(command === 'message') {
+    if(message.member.roles.cache.some(role => role.name === '🔴 | Projektleitung')) {
+        // sendet eine Nachricht in einen Channel (Format: !message #channel Nachricht)
+        const channel = message.mentions.channels.first();
+        if(channel) {
+            channel.send(argument.join(" ").slice(22));
+            message.channel.send("Nachricht erfolgreich gesendet!");
+        } else {
+            message.channel.send("Du hast keinen Channel angegeben!");
+        }
+    } else {
+        message.channel.send("Du hast nicht die Berechtigung diesen Befehl zu nutzen!");
+    }
+}
+
+if(command === 'clear') {
+    if(message.member.roles.cache.some(role => role.name === '🔴 | Projektleitung')) {
+        // löscht eine Nachricht (Format: !clear Anzahl)
+        if(!args[0]) return message.reply("Bitte gebe eine Anzahl an!");
+        message.channel.bulkDelete(args[0]);
+    } else {
+        message.channel.send("Du hast nicht die Berechtigung diesen Befehl zu nutzen!");
+    }
+}
+
+if(command === 'clearall'){
+    if(message.member.roles.cache.some(role => role.name === '🔴 | Projektleitung')) {
+        // löscht alle Nachrichten (Format: !clearall)
+        message.channel.bulkDelete(100);
+    } else {
+        message.channel.send("Du hast nicht die Berechtigung diesen Befehl zu nutzen!");
+    }
+}
+
+if(command === 'mc') {
+    // prüft ob der Minecraft Server online ist (Format: !mc)
+    const mc = require('minecraft-server-util');
+    mc.status('play.grafkox.de')
+    .then((response) => {
+        // sende eine embed Nachricht
+        const embed = new EmbedBuilder()
+            .setColor('DARK_BLUE')
+            .setTitle('Dead City Minecraft Server')
+            .setURL('https://dead-city.grafkox.de')
+            .setAuthor({ name: 'Dead City', iconURL: client.user.displayAvatarURL(), url: 'https://dead-city.grafkox.de/bot/' })
+            .setThumbnail('https://dead-city.grafkox.de/assets/cut.png')
+            .addFields(
+                { name: 'Server Status', value: 'Der Server ist aktuell **online** :white_check_mark:' },
+                { name: 'Server IP', value: '*play.grafkox.de*', inline: true },
+                { name: 'Website', value: '*dead-city.grafkox.de*', inline: true },
+            )
+            .setFooter({ text: 'Bot made by Grafkox_LP#7287', iconURL: 'https://cdn.discordapp.com/avatars/455285844350074881/d0b66b726036730c61206600c69c82e4.png?size=2048' });
+        message.channel.send({ embeds: [embed] });
+    })
+    .catch((error) => {
+        const embed = new EmbedBuilder()
+            .setColor('DARK_BLUE')
+            .setTitle('Dead City Minecraft Server')
+            .setURL('https://dead-city.grafkox.de')
+            .setAuthor({ name: 'Dead City', iconURL: client.user.displayAvatarURL(), url: 'https://dead-city.grafkox.de/bot/' })
+            .setThumbnail('https://dead-city.grafkox.de/assets/cut.png')
+            .addFields(
+                { name: 'Server Status', value: 'Der Server ist aktuell **offline** :x:\n\nSollte das Problem weiterhin bestehen kontaktiere bitte einen Administrator' },
+                { name: 'Server IP', value: '*play.grafkox.de*', inline: true },
+                { name: 'Website', value: '*dead-city.grafkox.de*', inline: true },
+            )
+            .setFooter({ text: 'Bot made by Grafkox_LP#7287', iconURL: 'https://cdn.discordapp.com/avatars/455285844350074881/d0b66b726036730c61206600c69c82e4.png?size=2048' });
+        message.channel.send({ embeds: [embed] });
+    });
 }
 })
