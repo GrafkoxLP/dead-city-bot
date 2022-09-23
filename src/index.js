@@ -3,6 +3,8 @@ require("dotenv").config()
 const fs = require("fs")
 const { Client, ActivityType, GatewayIntentBits, Collection, ActionRow, EmbedBuilder } = require("discord.js")
 const { InteractionType } = require("discord-api-types/v9")
+const welcome_channel = '940232290628419649'
+const log_channel = '940232291488268366'
 const prefix = '!';
 const client = new Client({intents: [GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMembers,
@@ -51,15 +53,16 @@ client.once("ready", () => {
     console.log("Bot ist online!")
     client.user.setActivity({name: "auf Dead City", type: ActivityType.Playing})
 })
-
-const channelID = '940232290628419649'
-
 client.on('guildMemberAdd', (member) => {
     const message = "Hey <@" +member.user+ "> Herzlich willkommen auf **Dead City**! 🎉🤗\nGehe bitte zu <#940232290628419650> und bestätige sie bitte mit ✅.\nDu kannst dir außerdem in <#940232290628419652> eigene Rollen geben."
-    const channel = member.guild.channels.cache.get(channelID)
+    const channel = member.guild.channels.cache.get(welcome_channel)
     channel.send(message)
     member.send("Hey <@" +member.user+ ">! Das ganze Team von **Dead City** wünscht dich noch einmal herzlich willkommen auf unserem Server und wir wünschen dir viel Spaß.\nFalls du es noch nicht gesehen hast, um unserem Server zu joinen, gehe bitte zu <#940232290628419650> und bestätige unsere Regeln bitte mit ✅.\nBei Fragen kannst du unter <#940232291018473491> ein Ticket erstellen.")
 })
+client.on("guildMemberRemove", (member) => {
+    const channel = member.guild.channels.cache.get(log_channel)
+    channel.send('Der User <@' +member.user+ '> hat den Server verlassen!');
+});
 
 
 
@@ -188,9 +191,19 @@ if(command === 'help') {
         .setThumbnail('https://dead-city.grafkox.de/assets/cut.png')
         .addFields(
             { name: 'Prefix', value: '*!*' },
-            { name: 'Commands', value: '\n!test\n!dm\n!message\n!clear\n!clearall\n!mc\n!help\n' },
+            { name: 'Commands', value: '\n!test\n!dm\n!message\n!clear\n!clearall\n!mc\n!help\n!inv\n' },
         )
         .setFooter({ text: 'Bot made by Grafkox_LP#7287', iconURL: 'https://cdn.discordapp.com/avatars/455285844350074881/d0b66b726036730c61206600c69c82e4.png?size=2048' });
     message.channel.send({ embeds: [embed] });
+}
+
+if(command === 'inv'){
+    // delete command message
+    message.delete();
+
+    //create a new invite link and send it to the user via dm
+    message.channel.createInvite({maxAge: 0, maxUses: 0}).then(invite => {
+        message.author.send('Hier ist dein Invite Link:\nhttps://discord.gg/VEZQzXA73P');
+    });
 }
 })
