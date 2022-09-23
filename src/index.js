@@ -177,4 +177,20 @@ if(command === 'mc') {
         message.channel.send({ embeds: [embed] });
     });
 }
+
+if(command === 'help') {
+    // sendet eine Hilfe Nachricht
+    const embed = new EmbedBuilder()
+        .setColor('DARK_BLUE')
+        .setTitle('Dead City Bot Hilfe')
+        .setURL('https://dead-city.grafkox.de')
+        .setAuthor({ name: 'Dead City', iconURL: client.user.displayAvatarURL(), url: 'https://dead-city.grafkox.de/bot/' })
+        .setThumbnail('https://dead-city.grafkox.de/assets/cut.png')
+        .addFields(
+            { name: 'Prefix', value: '*!*' },
+            { name: 'Commands', value: '\n!test\n!dm\n!message\n!clear\n!clearall\n!mc\n!help\n' },
+        )
+        .setFooter({ text: 'Bot made by Grafkox_LP#7287', iconURL: 'https://cdn.discordapp.com/avatars/455285844350074881/d0b66b726036730c61206600c69c82e4.png?size=2048' });
+    message.channel.send({ embeds: [embed] });
+}
 })
