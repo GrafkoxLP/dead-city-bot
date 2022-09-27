@@ -6,7 +6,10 @@ const { InteractionType } = require("discord-api-types/v9")
 const welcome_channel = '940232290628419649'
 const log_channel = '940232291488268366'
 const prefix = '!';
-const client = new Client({intents: [GatewayIntentBits.Guilds,
+const { default: SpotifyPlugin } = require("@distube/spotify")
+const { YtDlpPlugin } = require("@distube/yt-dlp")
+const client = new Client({intents: [
+	GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMembers,
     GatewayIntentBits.GuildBans,
     GatewayIntentBits.GuildEmojisAndStickers,
@@ -75,7 +78,7 @@ async function pickPresence() {
     }
 }
 client.once("ready", () => {
-    console.log("Bot ist online!")
+    console.log("Bot ist online!!!!!!!")
 })
 setInterval(pickPresence, 30 * 1000);
 client.on('guildMemberAdd', (member) => {
