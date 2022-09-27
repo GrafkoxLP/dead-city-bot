@@ -78,7 +78,7 @@ async function pickPresence() {
     }
 }
 client.once("ready", () => {
-    console.log("Bot ist online!!!!!!!")
+    console.log("Bot ist online!")
 })
 setInterval(pickPresence, 30 * 1000);
 client.on('guildMemberAdd', (member) => {
