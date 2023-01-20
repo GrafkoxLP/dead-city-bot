@@ -1,0 +1,27 @@
+{
+  "name": "muffi-bot",
+  "version": "1.0.0",
+  "description": "Open Source Discord.js Bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GrafkoxLP/muffi-bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GrafkoxLP/muffi-bot/issues"
+  },
+  "homepage": "https://github.com/GrafkoxLP/muffi-bot#readme",
+  "dependencies": {
+    "@discordjs/builders": "^1.3.0",
+    "@discordjs/rest": "^1.3.0",
+    "discord.js": "^14.6.0",
+    "dotenv": "^16.0.3"
+  }
+}

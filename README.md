@@ -1,2 +1,3 @@
-# dead-city-bot
-Offizieller Discord Bot von Dead City
+# Dead-City-Bot
+
+Open Source Discord.js Bot
