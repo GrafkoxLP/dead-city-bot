@@ -33,6 +33,7 @@ const client = new Client({intents: [
 const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_BOT_TOKEN);
 registerCommands();
 client.login(process.env.DISCORD_BOT_TOKEN);
+// Status Array
 const statusArray = [
     {
         name: "mit (/) Commands",
