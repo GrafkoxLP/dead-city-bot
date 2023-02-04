@@ -8,7 +8,6 @@ require("dotenv").config()
 const pingCommand = require("./commands/ping.js")
 const rules = require("./commands/rules.js")
 const mc = require("./commands/mc.js");
-const message = require("./commands/message.js");
 const notification_roles = require("./commands/notification_roles.js");
 const { ActionRowBuilder, TextInputAssertions, TextInputBuilder } = require("@discordjs/builders");
 
