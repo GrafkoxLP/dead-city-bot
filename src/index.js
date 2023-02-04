@@ -63,7 +63,7 @@ client.on("ready", () => {
     console.log("Bot is ready!");
 });
 async function registerCommands() {
-    const commands = [pingCommand, rules, mc, message, notification_roles];
+    const commands = [pingCommand, rules, mc, notification_roles];
     try {
         console.log('Started refreshing application (/) commands.');
 
