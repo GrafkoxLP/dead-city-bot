@@ -84,7 +84,7 @@ client.on('guildMemberAdd', (member) => {
     const message = "Hey <@" +member.user+ "> Herzlich willkommen auf **Dead City**! 🎉🤗\nGehe bitte zu <#940232290628419650> und bestätige sie bitte mit ✅.\nDu kannst dir außerdem in <#940232290628419652> eigene Rollen geben."
     const channel = member.guild.channels.cache.get(welcome_channel)
     channel.send(message)
-    member.send("Hey <@" +member.user+ ">! Das ganze Team von **Dead City** wünscht dich noch einmal herzlich willkommen auf unserem Server und wir wünschen dir viel Spaß.\nFalls du es noch nicht gesehen hast, um unserem Server zu joinen, gehe bitte zu <#940232290628419650> und bestätige unsere Regeln bitte mit ✅.\nBei Fragen kannst du unter <#940232291018473491> ein Ticket erstellen.")
+    member.send("Hey <@" +member.user+ ">! Das ganze Team von **Dead City** wünscht dich noch einmal herzlich willkommen auf unserem Server und wir wünschen dir viel Spaß.\nFalls du es noch nicht gesehen hast, um unserem Server zu joinen, gehe bitte zu <#940232290628419650> und bestätige unsere Regeln bitte mit ✅.\nBei Fragen kannst du unter <#1076595592647684166> ein Ticket erstellen.")
 })
 
 // Message Logger
