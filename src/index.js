@@ -11,6 +11,10 @@ const mc = require("./commands/mc.js");
 const notification_roles = require("./commands/notification_roles.js");
 const { ActionRowBuilder, TextInputAssertions, TextInputBuilder } = require("@discordjs/builders");
 
+// Channel IDs for Support System
+const supportMessageChannel = '1096516245186166824';
+const supportVoiceChannel = '940588586921758770';
+
 const client = new Client({intents: [
 	GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMembers,
@@ -78,6 +82,19 @@ async function registerCommands() {
         console.error(error);
     }
 }
+
+//When someone joines a specific voice channel send a message to a specific channel
+client.on('voiceStateUpdate', (oldState, newState) => {
+    const member = newState.member;
+    const channel = newState.channel;
+
+    // Prüfen, ob der User den spezifischen Voicechannel gejoint hat
+    if (channel?.id === supportVoiceChannel) {
+        // Nachricht in den Zielchannel senden
+        const targetChannel = client.channels.cache.get(supportMessageChannel);
+        targetChannel.send(`Hey <@&940232290129301547>, <@&1091462754696696010>, <@&1062080912390627380>! *${member.displayName}* ist nun im Support Warteraum!`);
+    }
+});
 
 //Send Welcome Message
 client.on('guildMemberAdd', (member) => {
