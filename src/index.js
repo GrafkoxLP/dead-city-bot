@@ -9,6 +9,7 @@ const pingCommand = require("./commands/ping.js")
 const rules = require("./commands/rules.js")
 const mc = require("./commands/mc.js");
 const notification_roles = require("./commands/notification_roles.js");
+const bewerbung_info = require("./commands/bewerbung_info.js");
 const { ActionRowBuilder, TextInputAssertions, TextInputBuilder } = require("@discordjs/builders");
 
 // Channel IDs for Support System
@@ -67,7 +68,7 @@ client.on("ready", () => {
     console.log("Bot is ready!");
 });
 async function registerCommands() {
-    const commands = [pingCommand, rules, mc, notification_roles];
+    const commands = [pingCommand, rules, mc, notification_roles, bewerbung_info];
     try {
         console.log('Started refreshing application (/) commands.');
 
@@ -214,6 +215,22 @@ client.on('interactionCreate', (interaction) => {
             interaction.reply({embeds: [embed]});
         }
     }
+    if (interaction.commandName === 'bewerbung_info') {
+        if (interaction.member.roles.cache.some(role => role.name === '🔴 | [Owner]')) {
+            const embed = new EmbedBuilder()
+                .setColor('DARK_BLUE')
+                .setTitle('Dead City Bewerbung')
+                .setURL('https://dead-city.grafkox.de')
+                .setAuthor({ name: 'Dead City', iconURL: client.user.displayAvatarURL(), url: 'https://dead-city.grafkox.de/bot/' })
+                .setThumbnail('https://dead-city.grafkox.de/assets/cut.png')
+                .addFields(
+                    { name: 'Was in deiner Bewerbung enthalten sein sollte', value: '- Information über deine Person\n- Warum möchtest du ausgerechnet Dead City unterstützen?\n- Warum sollten wir dich auswählen?\n- Welche Erfahrungen hast du bereits?\n- Was sind deine Stärken und Schwächen?' },
+                    { name: 'Was sind die Vorraussetzungen', value: '- Mindestalter: 16 Jahre\n- Respektvoller Umgangston\n- Verständliches und deutliches Mikrofon' },
+                )
+                .setFooter({ text: 'Bot made by Grafkox_LP#7287', iconURL: 'https://cdn.discordapp.com/avatars/455285844350074881/d0b66b726036730c61206600c69c82e4.png?size=2048' });
+            interaction.reply({embeds: [embed]});
+        }
+    }
 });
 
 
@@ -263,4 +280,4 @@ if(command === 'message') {
         message.channel.send("Du hast nicht die Berechtigung diesen Befehl zu nutzen!");
     }
 }
-})
+});
