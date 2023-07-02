@@ -130,7 +130,7 @@ client.on('interactionCreate', (interaction) => {
     if (interaction.commandName === 'rules') {
         if (interaction.member.roles.cache.some(role => role.name === '🔴 | [Owner]')) {
             const embed = new EmbedBuilder()
-                .setColor('DARK_BLUE')
+                .setColor('#206694')
                 .setTitle('Dead City Regeln')
                 .setURL('https://dead-city.grafkox.de')
                 .setAuthor({ name: 'Dead City', iconURL: client.user.displayAvatarURL(), url: 'https://dead-city.grafkox.de/bot/' })
@@ -151,7 +151,7 @@ client.on('interactionCreate', (interaction) => {
         mc.status('play.grafkox.de')
         .then((response) => {
             const embed = new EmbedBuilder()
-                .setColor('DARK_BLUE')
+                .setColor('#206694')
                 .setTitle('Dead City Minecraft Server')
                 .setURL('https://dead-city.grafkox.de')
                 .setAuthor({ name: 'Dead City', iconURL: client.user.displayAvatarURL(), url: 'https://dead-city.grafkox.de/bot/' })
@@ -167,7 +167,7 @@ client.on('interactionCreate', (interaction) => {
         })
         .catch((error) => {
             const embed = new EmbedBuilder()
-                .setColor('DARK_BLUE')
+                .setColor('#206694')
                 .setTitle('Dead City Minecraft Server')
                 .setURL('https://dead-city.grafkox.de')
                 .setAuthor({ name: 'Dead City', iconURL: client.user.displayAvatarURL(), url: 'https://dead-city.grafkox.de/bot/' })
@@ -202,7 +202,7 @@ client.on('interactionCreate', (interaction) => {
     if (interaction.commandName === 'notification_roles') {
         if (interaction.member.roles.cache.some(role => role.name === '🔴 | [Owner]')) {
             const embed = new EmbedBuilder()
-                .setColor('DARK_BLUE')
+                .setColor('#206694')
                 .setTitle('Dead City Notification Roles')
                 .setURL('https://dead-city.grafkox.de')
                 .setAuthor({ name: 'Dead City', iconURL: client.user.displayAvatarURL(), url: 'https://dead-city.grafkox.de/bot/' })
@@ -219,7 +219,7 @@ client.on('interactionCreate', (interaction) => {
     if (interaction.commandName === 'bewerbung_info') {
         if (interaction.member.roles.cache.some(role => role.name === '🔴 | [Owner]')) {
             const embed = new EmbedBuilder()
-                .setColor('DARK_BLUE')
+                .setColor('#206694')
                 .setTitle('Dead City Bewerbung')
                 .setURL('https://dead-city.grafkox.de')
                 .setAuthor({ name: 'Dead City', iconURL: client.user.displayAvatarURL(), url: 'https://dead-city.grafkox.de/bot/' })
