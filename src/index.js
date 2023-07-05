@@ -139,7 +139,7 @@ client.on('interactionCreate', (interaction) => {
                     { name: 'Discord Server', value: '**1.** User müssen sich an die TOS von Discord halten.\n**2.** Jeder Nutzer hat das Recht respektvoll behandelt zu werden. Die Verletzung dieses Rechts kann zu Konsequenzen führen.\n**3.** Den Anweisungen von Teammitgliedern ist stets Folge zu leisten.\n**4.** Administratoren haben immer das letzte Wort.\n**5.** Das anschreiben von Teammitgliedern ist verboten! Wenn ihr Hilfe braucht, könnt ihr im <#940232291018473491> ein Ticket aufmachen!\n**6.** Unabgesprochene Eigenwerbung ist verboten und kann bestraft werden.\n**7.** Das grundlose Pingen / Markieren von Nutzern ist untersagt.\n**8.** NSFW-Inhalte sind in allen Channeln strengstens verboten.\n**9.** Spammen ist verboten.\n**10.** Trolling ist in Sprach- sowie Textchanneln verboten.' },
                     { name: 'Minecraft Server', value: '**1.** Schummeln ist verboten! Darunter versteht man alles, was Vorteile gegenüber anderen bietet, wie z.B. X-Ray, Fly, AutoBuild, AutoClicker, oder ähnliches wie Bugs ausnutzen.\n**2.** Spammen von Nachrichten ist verboten und kann bestraft werden.\n**3.** Griefen oder Trollen jeglicher Art ist strengstens verboten und wird normalerweise mit einem 7 Tage Bann bestraft. Dazu gehört z.B. jegliche Blöcke abbauen von anderen Spielern, Items aus Kisten klauen, Villager von Spielern töten, ...\nIn Supportfällen werden nur Items erstattet, wenn ihr einen Clip habt, der beweisen kann, dass ihr gegrieft oder getrollt wurdet!\n**4.** Ihr dürft andere Spieler angreifen und die Items behalten, die der Spieler bei seinem Tot gedroppt hat. Danach geht ihr von der gegnerischen Basis weg und tötet nicht nocheinmal den Spieler, es sei denn dieser greift euch zuerst wieder an.\n**5.** Jegliche Versuche, die Performance des Servers zu mindern sind strengstens verboten.' },
                 )
-                .setFooter({ text: 'Bot made by Grafkox_LP#7287', iconURL: 'https://cdn.discordapp.com/avatars/455285844350074881/e799202175df16a29598e9e8969dfb52.png?size=2048' });
+                .setFooter({ text: 'Bot made by @grafkox_lp', iconURL: 'https://cdn.discordapp.com/avatars/455285844350074881/e799202175df16a29598e9e8969dfb52.png?size=2048' });
             interaction.reply({embeds: [embed]});
         }
         else {
@@ -162,7 +162,7 @@ client.on('interactionCreate', (interaction) => {
                     { name: 'Server IP', value: '*play.grafkox.de*', inline: true },
                     { name: 'Website', value: '*dead-city.grafkox.de*', inline: true },
                 )
-                .setFooter({ text: 'Bot made by Grafkox_LP#7287', iconURL: 'https://cdn.discordapp.com/avatars/455285844350074881/e799202175df16a29598e9e8969dfb52.png?size=2048' });
+                .setFooter({ text: 'Bot made by @grafkox_lp', iconURL: 'https://cdn.discordapp.com/avatars/455285844350074881/e799202175df16a29598e9e8969dfb52.png?size=2048' });
             interaction.reply({embeds: [embed]});
         })
         .catch((error) => {
@@ -177,7 +177,7 @@ client.on('interactionCreate', (interaction) => {
                     { name: 'Server IP', value: '*play.grafkox.de*', inline: true },
                     { name: 'Website', value: '*dead-city.grafkox.de*', inline: true },
                 )
-                .setFooter({ text: 'Bot made by Grafkox_LP#7287', iconURL: 'https://cdn.discordapp.com/avatars/455285844350074881/e799202175df16a29598e9e8969dfb52.png?size=2048' });
+                .setFooter({ text: 'Bot made by @grafkox_lp', iconURL: 'https://cdn.discordapp.com/avatars/455285844350074881/e799202175df16a29598e9e8969dfb52.png?size=2048' });
             interaction.reply({embeds: [embed]});
         });
     }
@@ -212,7 +212,7 @@ client.on('interactionCreate', (interaction) => {
                     { name: 'Server Updates - Notification', value: 'Reagiere mit ⚙️, um benachrichtigt zu werden, wenn es ein Update zum Server gibt!' },
                     { name: 'Twitch - Notification', value: 'Reagiere mit 🎥, um benachrichtigt zu werden, wenn wir live auf Twitch sind!' },
                 )
-                .setFooter({ text: 'Bot made by Grafkox_LP#7287', iconURL: 'https://cdn.discordapp.com/avatars/455285844350074881/e799202175df16a29598e9e8969dfb52.png?size=2048' });
+                .setFooter({ text: 'Bot made by @grafkox_lp', iconURL: 'https://cdn.discordapp.com/avatars/455285844350074881/e799202175df16a29598e9e8969dfb52.png?size=2048' });
             interaction.reply({embeds: [embed]});
         }
     }
@@ -228,7 +228,7 @@ client.on('interactionCreate', (interaction) => {
                     { name: 'Was in deiner Bewerbung enthalten sein sollte', value: '- Information über deine Person\n- Warum möchtest du ausgerechnet Dead City unterstützen?\n- Warum sollten wir dich auswählen?\n- Welche Erfahrungen hast du bereits?\n- Was sind deine Stärken und Schwächen?' },
                     { name: 'Was sind die Vorraussetzungen', value: '- Mindestalter: 16 Jahre\n- Respektvoller Umgangston\n- Verständliches und deutliches Mikrofon' },
                 )
-                .setFooter({ text: 'Bot made by Grafkox_LP#7287', iconURL: 'https://cdn.discordapp.com/avatars/455285844350074881/e799202175df16a29598e9e8969dfb52.png?size=2048' });
+                .setFooter({ text: 'Bot made by @grafkox_lp', iconURL: 'https://cdn.discordapp.com/avatars/455285844350074881/e799202175df16a29598e9e8969dfb52.png?size=2048' });
             interaction.reply({embeds: [embed]});
         }
     }
