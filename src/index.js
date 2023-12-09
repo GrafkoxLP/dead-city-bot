@@ -15,7 +15,6 @@ const { ActionRowBuilder, TextInputAssertions, TextInputBuilder } = require("@di
 // Channel IDs for Support System
 const supportMessageChannel = '1096516245186166824';
 const supportVoiceChannel = '940588586921758770';
-
 const client = new Client({intents: [
 	GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMembers,
@@ -182,7 +181,6 @@ client.on('interactionCreate', (interaction) => {
         });
     }
     if (interaction.commandName === 'message') {
-        //create modal
         const modal = new ModalBuilder()
             .setTitle('Message')
             .setCustomId('message')
