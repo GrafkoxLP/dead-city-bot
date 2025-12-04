@@ -1,5 +1,3 @@
-#Test for docker
-
 const { Client, ActivityType, GatewayIntentBits, Collection, ActionRow, EmbedBuilder, Routes, PermissionsBitField, ModalBuilder, TextInputStyle } = require("discord.js")
 const { REST } = require('@discordjs/rest');
 const prefix = '!';
@@ -283,4 +281,5 @@ if(command === 'message') {
         message.channel.send("Du hast nicht die Berechtigung diesen Befehl zu nutzen!");
     }
 }
+
 });
