@@ -1,13 +1,13 @@
-# Dead-City-Bot
+# PactMC-Bot
 
-Discord-Bot für den Dead-City-Server, gebaut mit [discord.js](https://discord.js.org/).
+Discord-Bot für den PactMC-Server, gebaut mit [discord.js](https://discord.js.org/).
 
 ## Features
 
 | Slash-Command | Beschreibung | Berechtigung |
 |---|---|---|
 | `/ping` | Aktuelle Bot-Latenz anzeigen | jeder |
-| `/mc` | Status des Minecraft-Servers (`play.grafkox.de`) abfragen | jeder |
+| `/mc` | Status des Minecraft-Servers (`pactmc.de`) abfragen | jeder |
 | `/kopfoderzahl` | Eine Münze werfen | jeder |
 | `/rules` | Server-Regeln als Embed posten | nur Owner |
 | `/bewerbung_info` | Bewerbungs-Infos als Embed posten | nur Owner |
@@ -28,8 +28,8 @@ Voraussetzung: **Node.js 24** (LTS Krypton) oder neuer.
 
 ```bash
 # 1. Repo klonen
-git clone https://github.com/GrafkoxLP/muffi-bot.git
-cd muffi-bot
+git clone https://github.com/GrafkoxLP/pactmc-bot.git
+cd pactmc-bot
 
 # 2. Environment-Variablen anlegen
 cp .env.example .env
@@ -47,8 +47,8 @@ Für Live-Reload während der Entwicklung: `npm run dev`.
 ## Setup (Docker)
 
 ```bash
-docker build -t dead-city-bot .
-docker run --rm --env-file .env dead-city-bot
+docker build -t pactmc-bot .
+docker run --rm --env-file .env pactmc-bot
 ```
 
 Das im Repo enthaltene GitHub-Actions-Workflow [docker-image.yml](.github/workflows/docker-image.yml) baut bei jedem Push auf `main` automatisch ein Image und pusht es nach GHCR.

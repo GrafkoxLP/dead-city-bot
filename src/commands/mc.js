@@ -15,7 +15,7 @@ async function fetchServerStatus(host) {
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('mc')
-        .setDescription('Sehe nach, ob der Dead City Server online ist'),
+        .setDescription('Sehe nach, ob der PactMC Server online ist'),
 
     async execute(interaction, client) {
         try {
@@ -26,21 +26,21 @@ module.exports = {
             }
 
             const embed = createBrandedEmbed(client)
-                .setTitle('Dead City Minecraft Server')
+                .setTitle('PactMC Minecraft Server')
                 .addFields(
                     { name: 'Server Status', value: 'Der Server ist aktuell **online** :white_check_mark:' },
                     { name: 'Spielerzahl', value: data.players.online + '/' + data.players.max, inline: true },
-                    { name: 'Server IP', value: '*play.grafkox.de*', inline: true },
-                    { name: 'Website', value: '*dead-city.grafkox.de*', inline: true },
+                    { name: 'Server IP', value: '*pactmc.de*', inline: true },
+                    { name: 'Website', value: '*pactmc.de*', inline: true },
                 );
             await interaction.reply({ embeds: [embed] });
         } catch (error) {
             const embed = createBrandedEmbed(client)
-                .setTitle('Dead City Minecraft Server')
+                .setTitle('PactMC Minecraft Server')
                 .addFields(
                     { name: 'Server Status', value: 'Der Server ist aktuell **offline** :x:\n\nSollte das Problem weiterhin bestehen kontaktiere bitte einen Administrator' },
-                    { name: 'Server IP', value: '*play.grafkox.de*', inline: true },
-                    { name: 'Website', value: '*dead-city.grafkox.de*', inline: true },
+                    { name: 'Server IP', value: '*pactmc.de*', inline: true },
+                    { name: 'Website', value: '*pactmc.de*', inline: true },
                 );
             await interaction.reply({ embeds: [embed] });
         }

@@ -12,9 +12,9 @@ module.exports = {
         if (!isOwner(interaction.member)) return;
 
         const embed = createBrandedEmbed(client)
-            .setTitle('Dead City Bewerbung')
+            .setTitle('PactMC Bewerbung')
             .addFields(
-                { name: 'Was in deiner Bewerbung enthalten sein sollte', value: '- Information über deine Person\n- Warum möchtest du ausgerechnet Dead City unterstützen?\n- Warum sollten wir dich auswählen?\n- Welche Erfahrungen hast du bereits?\n- Was sind deine Stärken und Schwächen?' },
+                { name: 'Was in deiner Bewerbung enthalten sein sollte', value: '- Information über deine Person\n- Warum möchtest du ausgerechnet PactMC unterstützen?\n- Warum sollten wir dich auswählen?\n- Welche Erfahrungen hast du bereits?\n- Was sind deine Stärken und Schwächen?' },
                 { name: 'Was sind die Vorraussetzungen', value: '- Mindestalter: 16 Jahre\n- Respektvoller Umgangston\n- Verständliches und deutliches Mikrofon' },
             );
 
